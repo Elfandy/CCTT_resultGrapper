@@ -41,7 +41,7 @@ students_data2 = []
 
 
 for i in range(len(students_data)):
-    students_data2.append(students_data[i-len(students_data)])
+    students_data2.append(students_data[len(students_data)-i])
 
 
 counter = 0
