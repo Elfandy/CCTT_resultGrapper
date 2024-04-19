@@ -10,6 +10,8 @@ students_list = []
 
 
 for i in range(7):
+    if (study_year - (i+2))==20:
+	continue
     semester1 = str(study_year - (i)) + "1"
     semester2 = str(study_year - (i)) + "2"
     for j in range(400):
