@@ -6,11 +6,11 @@ study_year = int(str(current_year)[2:])
 
 
 students_list = []
-
-
+students_data2 = []
+students_data = []
 
 for i in range(7):
-    if (study_year - (i+2))==20:
+    if (study_year - (i))==20:
 	continue
     semester1 = str(study_year - (i)) + "1"
     semester2 = str(study_year - (i)) + "2"
@@ -19,37 +19,21 @@ for i in range(7):
         students_list.append(semester2+"{:03d}".format(j))
 
 
-students_data = []
-
-
-
 for i in students_list:
     year_of_registering = "20"+i[:2]
     students_data.append({"id":i,"pass1":"{:02d}".format(int(year_of_registering)-18),"pass2":"{:02d}".format(int(year_of_registering)-19),"pass3":"{:02d}".format(int(year_of_registering)-20)})
 
-
-
-
-
-
-# reset the file
-c = open("./h.html", "w")
-c.write("")
-c.close()
-
-
-
-students_data2 = []
-
-
 for i in range(len(students_data)):
     students_data2.append(students_data[len(students_data)-i])
 
-
 counter = 0
-f = open("./h.html", "a")
+
+# reset the file
+f = open("./StudentsGradeList.html", "w")
 f.write("<!DOCTYPE html>")
 f.close()
+
+
 # fill the file with all the students grades
 for i in students_data2:
     
@@ -74,40 +58,6 @@ for i in students_data2:
     f.write("<br><br><br><br>")
     f.write("<hr><hr>")
     f.close()
-    # print("got the data...")
 
 
 
-	
-# # fill the file with all the students grades
-# for i in students_data:
-#     print("graping " + i['id'])
-#     response = requests.post("http://cctt.edu.ly/result/",{"form-username":i["id"],"form-password":i["pass1"]})
-#     if response.text.find("اسم الطالب:"):
-#         text = response.text[response.text.find('<table dir="rtl"  cellspacing="0" align="center"  >'):response.text.find('<tr><td colspan="3">المعدل الفصلي : ')]
-#         f = open("./h.html", "a")
-#         f.write(response.text[response.text.find(' <p class="pp">اسم الطالب:')+26:response.text.find(' </p>',response.text.find(' <p class="pp">اسم الطالب:'))])
-#         f.write(text)
-#         f.close()
-#         print("got the data...")
-       
-#     else:
-#         response = requests.post("http://cctt.edu.ly/result/",{"form-username":i["id"],"form-password":i["pass2"]}) 
-#         if response.text.find("اسم الطالب:"):
-#             text = response.text[response.text.find('<table dir="rtl"  cellspacing="0" align="center"  >'):response.text.find('<tr><td colspan="3">المعدل الفصلي : ')]
-#             f = open("./h.html", "a")
-#             f.write(response.text[response.text.find(' <p class="pp">اسم الطالب:')+26:response.text.find(' </p>',response.text.find(' <p class="pp">اسم الطالب:'))])
-#             f.write(text)
-#             f.close()
-#             print("got the data...")
-#         else:      
-#             response = requests.post("http://cctt.edu.ly/result/",{"form-username":i["id"],"form-password":i["pass3"]})
-#             if response.text.find("اسم الطالب:"):
-#                 text = response.text[response.text.find('<table dir="rtl"  cellspacing="0" align="center"  >'):response.text.find('<tr><td colspan="3">المعدل الفصلي : ')]
-#                 f = open("./h.html", "a")
-#                 f.write(response.text[response.text.find(' <p class="pp">اسم الطالب:')+26:response.text.find(' </p>',response.text.find(' <p class="pp">اسم الطالب:'))])
-#                 f.write(text)
-#                 f.close()
-#                 print("got the data...")
-#             else:
-#                 print("nothing here")
