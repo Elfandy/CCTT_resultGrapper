@@ -24,7 +24,7 @@ for i in students_list:
     students_data.append({"id":i,"pass1":"{:02d}".format(int(year_of_registering)-18),"pass2":"{:02d}".format(int(year_of_registering)-19),"pass3":"{:02d}".format(int(year_of_registering)-20)})
 
 for i in range(len(students_data)):
-    students_data2.append(students_data[i])
+    students_data2.append(students_data[len(students_data)-i-1])
 
 counter = 0
 
@@ -57,7 +57,6 @@ for index,i in enumerate(students_data2):
     test.close()
     f = open("./StudentsGradeList.html", "a")
     f.write("<br><br><br><br>")
-   
     f.write("\n<!-- tag with id"+i['id']+" -->\n")
     f.write("<h1>"+str(counter)+"</h1>\n")
     f.write("<h1>"+response.text[response.text.find(' <p class="pp">اسم الطالب:')+26:response.text.find(' </p>',response.text.find(' <p class="pp">اسم الطالب:'))]+"</h1>\n")
